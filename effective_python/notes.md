@@ -114,3 +114,70 @@ Python's unpacking syntax.
 Expect the caling code to handle exceptions properly when they're documented.
 - type annotations can be used to make it clear that a function will never return the value `None`, even in special
 situations.
+
+## Item 21: Know How Closures Interact with Variable Scope
+- closure functions can refer to variables from any of the scopes in which they were defined.
+- by default, closure can't affect enclosing scopes by assigning variables.
+- use the `nonlocal` statement to indicate when a closure can modify a variable in its enclosing scopes
+- avoid using nonlocal statements for anything beyond simple functions.
+
+## Item 22: Reduce Visual Noise with Variable Positional Arguments
+- functions can accept a variable number of positional arguments by using `args` in the `def` statement.
+- you can use the items from a sequence as the positional arguments for a function with `*` operator.
+- using the `*` operator with a generator may cause a program to run out of memory and crash.
+- adding new positional parameters to functions that accept `*args` can introduce hard-to-detect bugs
+
+## Item 23: Provide Optional Behavior with Keyword Arguments
+- function arguments can be specified by position or by keyword
+- kwywords make it clear what the purpose of each argument is when it would be confusing with only positional
+arguments.
+- keyword arguments with default values make it easy to add new behaviors to a function
+without needing to migrate all existing callers.
+- optional keyword arguments should always be passed by keyword instead of by position.
+
+## Item 24: Use `None` and Docstrings to Specify Dynamic Default Arguments
+- a default argument value is evaluated only once: during function definition at module load time. This can
+cause odd behaviors for dynamic values (like `{}`, `[]` or `datetime.now()`)
+- use `None` as the default value for any keyword argument that has a dynamic value. Document the actual
+behavior in the function's docstring.
+- Using `None` to represent keyword argument default values also works correctly with type annotations.
+
+## Item 25: Enforce Clarity with Keyword-Only and Positional-Only Arguments
+- Keyword-only arguments forces callers to supply certain arguments by keyword (instead of by position), which
+makes the intention of a function call clearer. Keyword-only arguments are defined after a single `*` in the argument
+list.
+- Positional-only arguments ensure that callers can't supply certain parameters using keywords, which helps reduce
+coupling. Positional-only arguments are defined before a single `/` in the argument list.
+- Parameters between the `/` and `*` characters in the argument list may be supplied by position or by keyword,
+which is the default for python parameters
+
+## Item 26: Define Function Decorators with `functools.wraps`
+- Decorators in Python are syntax to allow one function to modify another function at runtime.
+- Using decorators can cause strange behaviors in tools that do introspection, such as debuggers.
+- Use the `wraps` decorator from the functools built-in module when define your own decorators to avoid issues.
+
+## Item 27: Use Comprehensions Instead of `map` and `filter`
+- List comprehensions are clear than the `map` and `filter` built-in functions because they don't require `lambda`
+expressions.
+- List comprehensions allow you to easily skip items from the input `list`, a behavior that `map` doesn't support
+without help from `filter`
+- Dictionaries and sets may also be created using comprehensions.
+
+## Item 28: Avoid More Than Two Control Subexpressions in Comprehensions
+- Comprehensions support multiple levels of loops and multiple conditions per loop level.
+- Comprehensions with more than two control subexpression are very difficult to reand and should be avoided.
+
+## Item 29: Avoid Repeated Work in Comprehensions by Using Assignment Expressions
+- Assignment expressions make it possible for comprehensions and generator expressions to reuse the value
+from one condition elsewhere in the same comprehensions, which can improve readibility and performance.
+- Although it's possible to use an assignment expression outside of a comprehension or generator expression's condition
+, you should avoid doing so.
+
+## Item 30: Consider Generators Instead of Returning Lists
+- Using generators can be clearer than the alternative of having a function return a `list` of accumulated results.
+- The iterator returned by a generator produces the set of values passed to `yield` expressions within the generator
+function's body.
+- Generators can produce a sequence of outputs for arbitrarily large inputs because their working memory doesn't
+include all inputs and outputs.
+
+
