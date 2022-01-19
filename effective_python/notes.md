@@ -180,4 +180,70 @@ function's body.
 - Generators can produce a sequence of outputs for arbitrarily large inputs because their working memory doesn't
 include all inputs and outputs.
 
+## Item 31: Be Defensive When Iterating Over Arguments
+- Beware of functions and methods that iterate over input arguments multiple times. If these arguments
+are iterators, you may see strange behavior and missing values.
+- Python's iterator protocol defines how containers and itrators interact with the `iter` and `next` built-in functions
+, `for` loops, and related expressions.
+- You can easily define your own iterable container type by implementing the `__iter__` method as generator
+- You can detect that a value is an iterator (instead of a container) if caling `iter` on it produces the same value as
+you passed in. Alternatively, you can use the `isinstance`, built-in function with the `collections.abc.Iterator`
+class.
 
+## Item 32: Consider Generator Expressions for Large List Comprehensions
+- List comprehensions can cause problems for large inputs by using too much memory
+- Generator expressions avoid memory issues by producing outputs one at a time as iterators
+- Generator expressions can be composed by passing the iterator from on generator expression in the for
+subexpression of another.
+- Generator expressions execute very quicly when chained together and are memory efficient.
+
+## Item 33: Compose Multiple Generators with `yield from`
+- The `yield from` expression allows you to compose multiple nested generators together into a single combined
+generator.
+- `yield from` provided better performance than manually iterating nested generators and yielding their outputs.
+
+## Item 34: Avoid Injecting Data into Generators with `send`
+- The `send` method can be used to inject data into a generator by giving the `yield` expression a value that can
+be assigned to a variable.
+- Using `send` with `yield from` expressions may cause surprising behavior, such as `None`, values appearing at
+unexpected times in the generator output.
+- Providing an input iterator to a set of composed generators is better approach tha using the `send` method,
+which should be avoided.
+
+## Item 35: Avoid Causing State Transitions in Generators with `throw`
+- The `throw` method can be used to re-raise exceptions within generators at the position of the most recently executed
+`yield` expression.
+- Using `throw` harms readability because it requires additional nesting and boilerplace in order to raise and catch
+exceptions.
+- A better way to provide exceptional behavior in generators is to use a class that implements the `__iter__` method
+along with methods to cause exceptional state transitions.
+
+## Item 36: Consider `itertools` for Working with Iterators and Generators
+- The `itertools` functions fall into three main categories for working with iterators and generators: linking iterators
+together, filtering items they output, and producing combinations of items.
+- There are more advance functions, additional parameters, and useful recipes available in the documentation at
+`help(itertools)`
+
+## Item 37: Compose Classes Instead of Nesting Many Levels of Built-in Types
+- Avoid making dictionaries with values that are dictionaries, long tuples or complex nestings of other built-in types
+- Use `namedtuple` for lightweight, immutable data containers before you need the flexibility of a full class.
+- Move your bookkeeping code to using multiple classes when your internal state dictionaries get complicated.
+
+## Item 38: Accept Functions Instead of Classed for Simple Interfaces
+- Instead of defining and instantiating classes, you can often simply use functions for simple interfaces between
+components in Python.
+- References to functions and methods in Python are first class, meaning they can be used in expressions
+(like any other type)
+- The `__call__` special method enables instances of a class to be called like plain Python Functions
+- When you need a function to maintain state, consider defining a class that provides the `__call__` method instead of
+defining a stateful closure.
+
+## Item 39: Use `@classmethod` Polymorphism to Construct Objects Generically
+- Python only supports a single constructor per class: the `__init__` method.
+- Use `@classmethod` to define alternative constructors for your classes.
+- Use class method polymorphism to provide generic ways to build and connect many concrete sublasses.
+
+## Item 40: Initialize Parent Classes with `super`
+- Python's standard method resolution order (MRO) solves the problem of superclass initialization order and
+diamond inheritance.
+- Use the `super` built-in function with zero arguments to initialize parent classes.
