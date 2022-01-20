@@ -247,3 +247,74 @@ defining a stateful closure.
 - Python's standard method resolution order (MRO) solves the problem of superclass initialization order and
 diamond inheritance.
 - Use the `super` built-in function with zero arguments to initialize parent classes.
+
+## Item 41: Consider Composing Functionality with Mix-in Classes
+- Avoid using multiple inheritance with instance attributes and `__init__` if mixin in classes can achieve the same
+outcome.
+- Use pluggable behaviors at the instance level to provide per-class customization when mix-in classes may require it.
+- Mix-ins can include instance methods or class methods, depending on your needs.
+- Compose mix-ins to create complex functionality from simple behaviors.
+
+## Item 42: Prefer Public Attributes Over Private Ones
+- Private attributes aren't rigorously enforced by the Python compiler.
+- Plan from the beginning to allow subclasses to do more with your internal APIs and attributes instead of choosing to
+lock them out.
+- Use documentation of protected fields to guide subclasses instead of trying to force access control with private
+attributes.
+- Only consider using private attributes to avoid name conflicts with subclasses that are out of your control.
+
+## Item 43: Inherit from `collections.abc` for Custom Container Types
+- Inherit directly from Python's container types (like  `list` or `dict`) simple use cases.
+- Beware of the large number of methods required to implement custom container types correctly.
+- Have your custom container types inherit from the interfaces defined in `collections.abc` to ensure that your classes
+match required interfaces and behaviors
+
+## Item 44: Use Plain Attributes Instead of Setter and Getter Methods
+- Define new class interfaces using simple public attributes and avoid defining setter and getter methods
+- Use `@property` to define special behavior when attributes are accesed on your objects, if necessary.
+- Follow the rule of least surprise and avoid odd side effects in your `@property` methods.
+- Ensure that `@property` methods are fast: for slow or complex work - especially involving I/O or causing side effects
+use normal methods instead.
+
+## Item 45: Consider `@property` Instead of Refactorig Attributes
+- Use `@property` to give existing instance attributes new functionality
+- Make incremental progress toward better data models by using `@property`
+- Consider refactoring a class and all call sites when you find yourself using `@property` too heavily
+
+## Item 46: Use Descriptors for Reusable `@property` Methods
+- Reuse the behavior and validation of `@property` methods by defining your own descriptor classes.
+- Use `WeakKeyDictionary` to ensure that your descriptor classes don't cause memory leaks.
+- Don't get bogged down trying to understand exactly how `__getattribute__` use the descriptor protocol for fetting
+and settings attributes
+
+## Item 47: Use `__getattr__`, `__getattributed__`, and `__setattr__` for Lazy Attributes
+- Use `__getattr__` and `__setattr__` to lazily load and save attributes for an object.
+- Understand that `__getattr__` only gets called when accessing a missing attribute, whereas `__getattribute__` gets
+called every time any attribute is accessed.
+- Avoid infinite recursion in `__getattribute__` and `__setattr__` by using methods from `super()` to access instance
+attributes
+
+## Item 48: Validate Subclass with `__init_subclass__`
+- The `__new__` method of metaclasses is run after the `class` statement's entire body has been processed.
+- Metaclasses can be used to inspect or modify a class after it's defined but before it's created, but they're often
+more heavyweight than what you need.
+- Use `__init_subclass__` to ensure that subclasses are well formated at the time they are defined, before objects
+of their type are constructed.
+- Be sure to call `super().__init_subclass__` from within your class's `__init_subclass__` definition to enable
+validation in multiple layers of classes and multiple inheritance.
+
+## Item 49: Register Class Existence with `__init_subclass_`
+- Class registration is a helpful pattern for building modular Python programs.
+- Metaclasses let you run registration code automatically each time a base class is subclassed in a program
+- Using metaclasses for class registration helps you avoid errors by ensuring that you never miss a registration call
+- Prefer `__init_subclass__` over standard metaclass machinery because it's clearer and easier for beginers to
+understand.
+
+## Item 50: Annotate Class Attributes with `__set_name__`
+- Metaclasses enable you to modify a class's attributes before the class is fully defined.
+- Descriptors and metaclasses make powerful combination for declarative behavior and runtime introspection
+- Define `__set_name__` on your descriptors classes to allow them to take into account their surrounding class and its
+property names.
+- Avoid Memory leaks and `weakref` built-int module by having descriptors store data they manipulate directly within a
+class's instance directory.
+
