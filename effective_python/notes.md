@@ -318,3 +318,73 @@ property names.
 - Avoid Memory leaks and `weakref` built-int module by having descriptors store data they manipulate directly within a
 class's instance directory.
 
+## Item 51: Prefer Class Decorators Over Metaclasses for Composable Class Extension
+- A class decorator is a simple function that receives a `class` instance asa a parameter and returns either a new class
+or a modified version of the original class.
+- Class decorators are useful when you want to modify every method or attribute of a class with minimal boilerplate.
+- Metaclasses can't be composed together easily, while many class decorators can be used to extend the same class
+without conflicts.
+
+## Item 52: Use `subprocess` to Manage Child Processes
+- Use the `subprocess` module to run child processes and manage their input and output streams.
+- Child processes run in paralell with the Python Interpreter, enabling you to maximize your usage of CPU cores.
+- Use the `run` convenience function for simple usage, and the `Popen` class for advanced usage like UNIX-style
+pipelines.
+- Use the `timeout` parameter of the `communicate` method to avoid deadlocks and hanging child processes.
+
+## Item 53: Use Threads for Blocking I/O, Avoid Parallelism
+- Python threads can't run in parallel on multiple CPU cores because of the global interpreter lock
+- Python threads are still useful despite the GIL because they provide an easy way to do multiple things seemingly
+at the same time.
+- Use Python threads to make multiple calls in parallel. This allows you to do blocking I/O at the same time as
+computation.
+
+## Item 54: Use `Lock` to Prevent Data Races in Threads
+- Even though Python has a global interpreter lock, you're still responsible for
+protecting against data races betweent the threads in your programs.
+- Your programs will corrupt their data structures if you allow multiple threads to modify the same objects without
+mutual-exclusion locks (mutexes).
+- Use the `Lock` class from the `threading` built-in module to enforce your program's invariants between multiple
+threads.
+
+## Item 55: Use `Queue` to coordinate Work Between Threads
+- Pipelines are a great way to organize sequences of work -- especially I/O-bound programs-that run concurrently
+using multiple Python threads.
+- Be aware of the many problems in building concurrent pipelines: busy waiting, how to tell workers to stop, and
+potential memory explosion.
+- The `Queue` class has all the facilities you need to build robust pipelines: blocking operations, buffer sizes, and
+joining.
+
+## Item 56: Know how to Recognize When Concurrency Is Necessary
+- A program often grows to require multiple concurent lines of execution as its scope and complexity increases.
+- The most common types of concurrency coordination are fan-out (generating new units of concurrency) and fan-in
+(waiting for existing units of concurency to complete)
+- Python has many different ways of achieving fan-out and fan-in
+
+## Item 57: Avoid Creating New `Thread` Instances for On-demand Fan-out
+- Threads have many downside: They're costly to start and run if you need a lot of them, they each require a signifiant
+amount of memory, and they require special tools like `Lock` instances for coordination.
+- Threads do not provide a built-in way to raise exceptions back in the code that started a thread or that is waiting
+for one to finish, which makes them difficult to debug.
+
+## Item 58: Understand How Using `Queue` for Concurency Requires Refactoring
+- Using `Queue` instances with a fixed number of worker threads improves the scalability of fan-out and fan-in using
+threads.
+- It takes a significant amount of work to refactor existing code to use `Queue`, especially when multiple stages of
+a pipeline are required.
+- Using `Queue`, fundamentally limits the total amount of I/O parallelism a program can leverage compared to
+alternative approaches provided by other built in Python features and modules.
+
+## Item 59: Consider `ThreadPoolExecutor` When Threads are Necessary for Concurrency
+- `ThreadPoolExecutor` enables simple I/O parallelism with limited refactoring, easily avoiding the cost of thread
+startup each time fanout concurrency is required.
+- Although `ThreadPoolExecutor` eliminates the potential memory blow-up issues of using threads directly, it also limits
+I/O parallelism by requiring `max_workers to be specified upfront`
+
+## Item 60: Achieve Highly Concurrent I/O with Coroutines
+- Functions that are defined using `async` keyword are called coroutines. A caller can receive the result of a
+dependent coroutine by using the `await` keyword
+- Coroutines provde an efficient way to runs tens of thousands of functions seemingly at the same time.
+- Coroutines can use fan-out and fan-in in order to parallelize I/O, while also overcoming all of the problems
+associated with doing I/O in threads
+
