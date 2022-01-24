@@ -438,3 +438,11 @@ This facilitates top-down migrations to `asyncio`
 - Use the `cProfile` module instead of the `profile` module because it provides more accurate profiling information
 - The `Profile` objects' `runcall` method provides everything you need to profile a tree of function calls in insolation.
 - The `Stats` objects lets you select and print the subset of profiling information you need to see to understand your programs's performance.
+
+## 71: Prefer `deque` for Producer-Consumer Queues
+- The `list` type can be used as FIFO queue by having the producer call `append` to add items and the consumer call `pop(0)` to receive items. However, this may cause problems because the performance of `pop(0)` degrades superlinearyly as the queue length increases.
+- The `dequea` class from the `collections` built-in module takes constant time--regardles of lenght--for `append` and `popleft`, making it ideal for FIFO queues.
+
+## Item 72: Consider Searching Sorted Sequences with `bisect`
+- Searching sorted data containerd in a `list` takes linear time using the `index` method for a `for` loop with simple comparisons.
+- The `bisect` built-int module' `bisect_left` function takes logarithmic time to search for values in sorted lists, which can be orders of magnitude faster than other approaches.
