@@ -388,3 +388,9 @@ dependent coroutine by using the `await` keyword
 - Coroutines can use fan-out and fan-in in order to parallelize I/O, while also overcoming all of the problems
 associated with doing I/O in threads
 
+## Item 61: Know How to Port Threaded I/O to `asyncio`
+- Python provides asynchronous versions of `for` loops, `with` statements, generators, comprehensions, and helper
+  functions that can be used as drop-in replacements in coroutines.
+- The `asyncio` built-in module makes it straightforward to port existing code that uses threads and blocking I/O over to coroutines and asynchronous I/O
+
+
