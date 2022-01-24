@@ -393,4 +393,48 @@ associated with doing I/O in threads
   functions that can be used as drop-in replacements in coroutines.
 - The `asyncio` built-in module makes it straightforward to port existing code that uses threads and blocking I/O over to coroutines and asynchronous I/O
 
+## Item 62: Mix Threads and Coroutines to Ease the Transition to `asyncio`
+- The awaitable `run_in_executor` method of the asyncio event loop enables coroutines to run synchronous functions into `ThreadPoolExecutor` pools.
+This facilitates top-down migrations to `asyncio`
+- The `run_until_complete` method of the `asyncio` event loop enables synchronous code to run a coroutine until it finishes. The `asyncio.run_coroutine_threadsafe` function provides the same functionality across thread boundaries. Together these help with bottom-up migrations to `asyncio`
 
+## Item 63: Avoid Blocking the `asyncio` Event Loop to Maximize Responsiveness
+- Making system call sin coroutines, including blocking I/O and starting threads, can reduce program responsiveness and increase the perception of latency.
+- Pass the `debug=True` parameter to `asyncio.run` in order to detect when certain coroutines are preventing the event loop from reacting quickly.
+
+## Item 64: Consider `concurent.futures` for True Paralleism
+- Moving CPU bottlenecks to C-extension modules can be an effective way to improve performance while maximizing your investment in Python code. However, doing so has a high cost and may introduce bugs.
+- The `multiprocessing` module provides powerful tools that can parallelize certin types of Python computation with minimal effort.
+- The power of `multiprocessing` is best accessed thorugh the `concurrent.futures` built-in module and its simple `ProcessPoolExecutor` class.
+- Avoid the advanced parts of the `multiprocessing` module until you've exhausted all other options.
+
+## Item 65: Take Advantage of Each Block in `try/except/else/finally`
+- The `try/finally` compound statement lets you run cleanup code regardless of wheather exceptions were raised in the `try` block.
+- The `else` block helps you minimize the amount of code in `try` blocks and visually distinguish the success case from the `try`/`except` blocks.
+- An `else` block can be used to perform additional actions after a successful `try` block but before common cleanup in a `finally` block
+
+## Item 66: Consider `contextlib` and `with` Statements for Reusable `try/finally` Behavior
+- The `with` statement allows you to reuse logic from `try/finally` blocks and reduce visual noise.
+- The `contextlib` built-in module provides a `contextmanager` decorator that makes it easy to use your own functions in `with` statements.
+- The value yielded by context managers is supplied to the `as` part of the `with` statement. It's useful for letting your code directly access the cause of a special context.
+
+## Item 67: Use `datetime` Instead of `time` for Local Clocks
+- Avoid using the `time` module for translating between different time zones.
+- Use the `datetime` built-in module along with the `pytz` community module to reliably convert between times in different time zone.
+- Always represent time in UTC and do conversions to local time as the very final step before presentation.
+
+## Item 68: Make `pickle` Reliable with `copyreg`
+- The `pickle` built-in module is useful only for serializing and deserializing objects between trusted programs.
+- Deserializing previously pickled objects may break if the classes involved have changed over time
+- Use the `copyreg` built-in module with `pickel` to ensure backward compabilitiy for serialized objects.
+
+## Item 69: Use `decimal` When Precision Is Paramount
+- Python has built-in types and classes in modules that can represent practically every type of numerical value.
+- The `Decimal` class is ideal for situations that require high precision and control over rounding behavior, such as computations of monetary values.
+- Pass `str` instances to the `Deciaml` constructor, instead of `float` instance it it's important to compute exact answers and not floatint point aproximations.
+
+## 70: Profile Before Optimizing
+- It's important to profile Python programs before optimizing because the sources of slowdowns are ofthen obscure
+- Use the `cProfile` module instead of the `profile` module because it provides more accurate profiling information
+- The `Profile` objects' `runcall` method provides everything you need to profile a tree of function calls in insolation.
+- The `Stats` objects lets you select and print the subset of profiling information you need to see to understand your programs's performance.
