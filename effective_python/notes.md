@@ -446,3 +446,104 @@ This facilitates top-down migrations to `asyncio`
 ## Item 72: Consider Searching Sorted Sequences with `bisect`
 - Searching sorted data containerd in a `list` takes linear time using the `index` method for a `for` loop with simple comparisons.
 - The `bisect` built-int module' `bisect_left` function takes logarithmic time to search for values in sorted lists, which can be orders of magnitude faster than other approaches.
+
+## Item 73: Know How to Use `heapq` for Priority Queues
+- Priority queues allow you to process itmes in order of importance instead of in first-in, first-out order
+- If you try to use `list` operations to implement a priority queue, your program's performance will degrade superlinearly aas the queue grows.
+- The `heapq` built-in module provides all the functions you need to implement a priority queue that scales efficiently.
+- To use `heapq`, the items being prioritized must have a natural sort order, which requires special methods like `__lt__` to be defined for classes.
+
+## Item 74: Consider `memoryview` and `bytearray` for Zero-Copy Interactions with `bytes`
+- The `memoryview` built-int type provides a zero-copy interface for reading and writing slices of objects that support Python's high performance buffer protocol.
+- The `bytearray` built-in type provides a mutable `bytes` like type that can be used for zero-copy data reads with functions like `socket.recv_from`
+- A `memoryview` can wrap a bytearray, allowing for received data to be spliced into an arbitrary buffer location without copying costs.
+
+## Item 75: Use `repr` Strings for Debugging Output
+- Vsllinh `print` on built-in Python types produces the humanreadable string version of a value which hides type information.
+- Calling `repr` on built-in Python types produces the printable string version of a value. These `repr` strings can often be passed to the `eval` built-in function to get back the original value.
+- '%s' in format strings produces human-readable strings like `str`. `%r` produces printable strings like `repr`
+F-strings produce humareadable strings for replacement text expressions unless you specify the !r sufix.
+- You can define the `__repr__` special method on a class to customize the printable representation of instances and provide more deatailed debugging information.
+
+## Item 76: Verify Related Behaviors in `TestCase` Subclasses
+- You can create tests by subclassing the `TestCase` class from the `unittest` built-in module and defining one method per behavior you’d like to test. Test methods on `TestCase` classes must start with the word tests
+- Use the various helper methods defined by the `TestCase` class, such as assertEqual, to confirm expected behaviors in your tests instead of using the built-in assert statements
+- Consider writing data-driven tests using the subTest helper method in order to reduce boilerplate
+
+## Item 77: Isolate Tests from Each Other with `setUp`, `tearDown`,`setUpModule` and `tearDownModule`
+- It’s important to write both unit tests (for isolated functionality) and integration tests (for modules that interact with each other).
+- Use the setUp and tearDown methods to make sure your tests are isolated from each other and have a clean test environment.
+- For integration tests, use the setUpModule and tearDownModule module-level functions to manage any test harnesses you need for the entire lifetime of a test module and all of the TestCase classes that it contains.
+
+# Item 78: Use Mocks to Test Code with Complex Dependencies
+- The unittest.mock module provides a way to simulate the behavior of interfaces using the Mock class. Mocks are useful in tests when it’s difficult to set up the dependencies that are required by the code that’s being tested.
+- When using mocks, it’s important to verify both the behavior of the code being tested and how dependent functions were called by that code, using the Mock.assert_called_once_with family of methods.
+- Keyword-only arguments and the unittest.mock.patch family of functions can be used to inject mocks into the code being tested.
+
+## Item 79: Envapsulate Dependencies to Facilitate Mocking and Testing
+- When unit tests require a lot of repeated boilerplate to set up mocks, one solution may be to encapsulate the functionality of dependencies into classes that are more easily mocked.
+- The Mock class of the unittest.mock built-in module simulates classes by returning a new mock, which can act as a mock method, for each attribute that is accessed.
+- For end-to-end tests, it’s valuable to refactor your code to have more helper functions that can act as explicit seams to use for injecting mock dependencies in tests.
+
+## Item 80: Consider Interactive Debugging with pdb
+- You can initiate the Python interactive debugger at a point of interest directly in your program by calling the breakpoint built-in function.
+- The Python debugger prompt is a full Python shell that lets you inspect and modify the state of a running program.
+- pdb shell commands let you precisely control program execution and allow you to alternate between inspecting program state and progressing program execution.
+- The pdb module can be used for debug exceptions after they happen in independent Python programs (using python -m pdb -c continue <program path>) or the interactive Python interpreter (using import pdb; pdb.pm()).
+
+## Item 81: Use tracemalloc to Understand Memory Usage and Leaks
+- It can be difficult to understand how Python programs use and leak memory.
+- The gc module can help you understand which objects exist, but it has no information about how they were allocated
+- The tracemalloc built-in module provides powerful tools for understanding the sources of memory usage.
+
+## Item 82: Know Where to Find Community-Built Modules
+- The Python Package Index (PyPI) contains a wealth of common packages that are built and maintained by the Python community.
+- pip is the command-line tool you can use to install packages from PyPI.
+- The majority of PyPI modules are free and open source software.
+
+## Item 83: Use Virtual Environments for Isolated and Reproducible Dependencies
+- Virtual environments allow you to use pip to install many different versions of the same package on the same machine without conflicts.
+- Virtual environments are created with python -m venv, enabled with source bin/activate, and disabled with deactivate.
+- You can dump all of the requirements of an environment with python3 -m pip freeze. You can reproduce an environment by running python3 -m pip install -r requirements.txt
+
+## Item 84: Write Docstrings for Every Function, Class, and Module
+- Write documentation for every module, class, method, and function using docstrings. Keep them up-to-date as your code changes.
+- For modules: Introduce the contents of a module and any important classes or functions that all users should know about.
+- For classes: Document behavior, important attributes, and subclass behavior in the docstring following the class statement.
+- For functions and methods: Document every argument, returned value, raised exception, and other behaviors in the docstring following the def statement
+- If you’re using type annotations, omit the information that’s already present in type annotations from docstrings since it would be redundant to have it in both places.
+
+## Item 85: Use Packages to Organize Modules and Provide Stable APIs
+- Packages in Python are modules that contain other modules. Packages allow you to organize your code into separate, non-conflicting namespaces with unique absolute module name
+- Simple packages are defined by adding an __init__.py file to a directory that contains other source files. These files become the child modules of the directory’s package. Package directories may also contain other packages.
+- You can provide an explicit API for a module by listing its publicly visible names in its __all__ special attribute.
+- You can hide a package’s internal implementation by only importing public names in the package’s __init__.py file or by naming internal-only members with a leading underscore.
+- When collaborating within a single team or on a single codebase, using __all__ for explicit APIs is probably unnecessary.
+
+## Item 86: Consider Module-Scoped Code to Configure Deployment environments
+- Programs often need to run in multiple deployment environments that each have unique assumptions and configurations.
+- You can tailor a module’s contents to different deployment environments by using normal Python statements in module scope
+- Module contents can be the product of any external condition, including host introspection through the sys and os modules.
+
+## Item 87: Define a Root Exception to Insulate Callers from APIs
+- Defining root exceptions for modules allows API consumers to insulate themselves from an API.
+- Catching root exceptions can help you find bugs in code that consumes an API.
+- Catching the Python Exception base class can help you find bugs in API implementations
+-  Intermediate root exceptions let you add more specific types of exceptions in the future without breaking your API consumer
+
+## Item 88: Know How to Break Circular Dependencies
+- Circular dependencies happen when two modules must call into each other at import time. They can cause your program to crash at startu
+- The best way to break a circular dependency is by refactoring mutual dependencies into a separate module at the bottom of the dependency tree.
+- Dynamic imports are the simplest solution for breaking a circular dependency between modules while minimizing refactoring and complexity.
+
+## Item 89: Consider warnings to Refactor and Migrate Usage
+- The warnings module can be used to notify callers of your API about deprecated usage. Warning messages encourage such callers to fix their code before later changes break their programs.
+- Raise warnings as errors by using the -W error command-line argument to the Python interpreter. This is especially useful in automated tests to catch potential regressions of dependencies.
+- In production, you can replicate warnings into the logging module to ensure that your existing error reporting systems will capture warnings at runtime.
+- It’s useful to write tests for the warnings that your code generates to make sure that they’ll be triggered at the right time in any of your downstream dependencies.
+
+## Item 90: Consider Static Analysis via typing to Obviate Bugs
+- Python has special syntax and the typing built-in module for annotating variables, fields, functions, and methods with type information.
+- Static type checkers can leverage type information to help you avoid many common bugs that would otherwise happen at runtim
+- There are a variety of best practices for adopting types in your programs, using them in APIs, and making sure they don’t get in the way of your productivity.
+
