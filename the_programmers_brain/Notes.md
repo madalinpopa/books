@@ -33,3 +33,6 @@
 - To maximize the amount of knowledge you remember, spread your practice over time.
 - Information in your LTM is stored as a connected network of related facts.
 - Active elaboration of new information helps strengthen the network of memories the new memory will connect to, easing retrieval.
+
+## Chapter 4
+ sometimes you might want to refactor code not to make it more maintainable in the long run but more readable for you at that point in time
