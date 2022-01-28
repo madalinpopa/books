@@ -35,4 +35,18 @@
 - Active elaboration of new information helps strengthen the network of memories the new memory will connect to, easing retrieval.
 
 ## Chapter 4
- sometimes you might want to refactor code not to make it more maintainable in the long run but more readable for you at that point in time
+- sometimes you might want to refactor code not to make it more maintainable in the long run but more readable for you at that point in time
+
+## Chapter 5
+- Writing a summary of code in natural language will help you gain a deeper understanding of whatâ€™s happening in that code.
+- A final strategy from text comprehension that we can apply to code comprehension is summarizing what you have just read
+- One technique that can be helpful for very complex code of which a deeper understanding is needed is to list all operations in which variables are involved.
+- Once you have created the list of identifiers, you can use it to gain a deeper understanding of the code. For example, you can divide the variable names into two different categories: names of variables that are related to the domain of the code, such as Customer or Package, and variable names that are related to programming concepts, such as Tree or Lis
+- When reading code, it is important to keep track of what you are reading and whether you understand i
+- Siegmundâ€™s findings reliably showed that program comprehension activates five Brodmann areas, all located in the left hemisphere of the brain: BA6, BA21, BA40, BA44, and BA4.
+- An fMRI machine can detect which Brodmann areas are active by measuring blood flow in the brain
+- To be able to know where to start, you need to understand how the framework links code together
+- The focal point of code is an important notion when reading code. Simply put, you have to know where to start reading.
+- Plan knowledge, on the other hand, represents understanding what a programmer planned when they created the program or what they were aiming to achieve.
+- According to Penningtonâ€™s model, text structure knowledge relates to surface-level understanding of parts of the program, such as knowing what a keyword does or knowing the role of a variable.
+
