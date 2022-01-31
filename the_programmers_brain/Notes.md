@@ -50,3 +50,12 @@
 - Plan knowledge, on the other hand, represents understanding what a programmer planned when they created the program or what they were aiming to achieve.
 - According to Penningtonâ€™s model, text structure knowledge relates to surface-level understanding of parts of the program, such as knowing what a keyword does or knowing the role of a variable.
 
+## Chapter 8
+- Knowledge you already have stored in your LTM can be transferred to new situations. Sometimes existing knowledge helps you learn faster or perform new tasks better. This is called positive transfer.
+- Transfer of knowledge from one domain to another can also be negative, which happens when existing knowledge interferes with learning new things or executing new tasks.
+- You can use positive transfer to learn new things more effectively by actively searching for related information in your LTM (for example, by elaboration, as covered earlier in the book).
+- You may hold misconceptions, which occur when you are sure you are right but are actually wrong.
+- Misconceptions are not always addressed by simply realizing or being told you are wrong. For misconceptions to be fixed, you need a new mental model to replace the old, wrong model.
+- Even if you have learned a correct model, there is always the risk you will fall back to using the misconception.
+- Use tests and documentation within a codebase to help prevent misconceptions.
+
