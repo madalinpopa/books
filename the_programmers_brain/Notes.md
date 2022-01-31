@@ -59,3 +59,10 @@
 - Even if you have learned a correct model, there is always the risk you will fall back to using the misconception.
 - Use tests and documentation within a codebase to help prevent misconceptions.
 
+## Chapter 9
+- There are different perspectives on what makes a good name, ranging from syntactic rules, such as using camel case, to emphasis on consistency within a codebase.
+- Without other differences, camel case variables are easier to remember than variables written in snake case, but people are quicker to identify variables when using snake case
+- Locations in code where bad naming occur are also more likely to contain bugs, but that does not necessarily mean there is a causation.
+- There are many different name molds used to shape variable names, but limiting yourself to a smaller number of molds will likely help comprehension.
+- Applying Feitelson’s three-step model (what concepts to use in a name, what words to use for those concepts, and how to combine them) leads to higher quality names.
+
