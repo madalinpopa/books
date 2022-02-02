@@ -74,3 +74,26 @@
 - Your LTM stores different types of memories, which all play a different role when solving problems. The two overarching categories of memories are implicit and explicit memories. Implicit memories are “muscle memories,” tasks you can execute without thinking about them, like touch typing. Explicit memories are memories you are aware of that you need to actively recall, such as the syntax of a for-loop.
 - To strengthen your implicit memories related to programming, it is best to automatize related skills, such as touch typing and memorizing relevant keyboard shortcuts.
 - To strengthen your explicit memories related to programming, study existing code, preferably with an explanation about how the code was designed.
+
+## Chapter 11
+- When you are programming, you perform a combination of different programming activities: searching, comprehending, transcription, incrementation, and exploration. Each activity puts pressure on different memory systems. Therefore, each activity should be supported by different techniques.
+- Interruptions while you are programming are not only annoying; they are detrimental to productivity because it takes time to rebuild your mental model of the code.
+- To better deal with interruptions, offload mental models into notes, documentation, or comments.
+- Deliberately support your prospective memory if you cannot complete a task by documenting your plans.
+- Try to limit interruptions to moments you experience low cognitive load, for example, through automation using a FlowLight or manually by setting your status in Slack.CDN is a framework that helps programmers predict the cognitive effect programming languages will have on their users.
+
+## Chapter 12
+- CDN is a ramework that helps programmers predict the cognitive effect programming languages will have on their users.f
+- CDCB is an extension of CDN that helps programmers understand the impact their codebases, libraries, and frameworks will have on their users.
+- In many cases, trade-offs between different dimensions must be made. Improving one dimension might decrease another dimension.
+- Improving the design of existing codebases according to the notations framework’s cognitive dimension can be done with a design maneuver.
+- Different activities place different demands on the dimensions a codebase optimizes for.
+
+## Chapter 13
+- Experts think and act differently from beginners. Experts can reason abstractly about code and have the ability to think about it without referring to the code itself. Beginners tend to focus on details in the code and have a hard time stepping back from details.
+- When midlevel programmers learn new information, they sometimes fall back to beginner-level thinking.
+- People who are learning a new concept need to learn about it in both abstract terms and in concrete examples.
+- People who are learning a new concept also need time to connect a new concept to prior knowledge.
+- When onboarding, limit the programming activities newcomers perform to one at a time.
+- When onboarding, prepare relevant information to support the onboardee’s long-term, short-term, and working memory.
+
