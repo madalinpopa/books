@@ -18,3 +18,14 @@
 - However, the specification notes that contact information for the author of a blog post should instead be wrapped by an `<address>` element.
 - h1–h6 elements must not be used to mark up subheadings, subtitles, alternative titles and taglines unless intended to be the heading for a new section or subsection.
 
+
+## Chapter 3
+- you can use any CSS length unit to specify media queries. Pixels (px) are the most commonly used but ems (em) and rems (rem) are equally valid and applicable.
+- Therefore, unless you want to target styles to particular media types, just leave the screen and part out. That's the way we will be writing media queries in the example files from this point on. For example:
+```css
+@media (min-width: 750px) {
+    /* styles */
+}
+```
+- note that "render blocking" only refers to whether the browser will have to hold the initial rendering of the page on that resource. In either case, the CSS asset is still downloaded by the browser, albeit with a lower priority for non-blocking resources.
+- The pointer media feature is used to query about the presence and accuracy of a pointing device such as a mouse.
