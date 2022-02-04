@@ -29,3 +29,21 @@
 ```
 - note that "render blocking" only refers to whether the browser will have to hold the initial rendering of the page on that resource. In either case, the CSS asset is still downloaded by the browser, albeit with a lower priority for non-blocking resources.
 - The pointer media feature is used to query about the presence and accuracy of a pointing device such as a mouse.
+- There are three possible states for the pointer features: none, coarse, and fine
+
+## Chapter 4
+- the formula to transform a fiexed element to a fluid is: target, divided by context, equals result.
+- display: flex: This is the bread and butter of Flexbox. This merely sets the item to be a Flexbox, as opposed to a block or inline-block.
+- align-items: This aligns the items within a Flexbox in the cross axis, vertically centering the text in our example.
+- justify-content: This sets the main axis, centering the content. With a Flexbox row, you can think of it as the button in a word processor that sets the text to the left, right, or center
+- When items are set as inline-flex anonymously, which happens if their parent element is not set to `display: flex`, then they retain whitespace between elements, just like inline-block or `inline-table` do. However, if they are within a flex container, then whitespace is removed, much as it is with CSS `table-cell` items within a CSS table.
+- The align-items property positions items in the cross axis
+- `flex-start`: Setting an element to `flex-start` would make it begin at the "starting" edge of its flex container.
+- `flex-end`: Setting to `flex-end` would align the element at the end of the flex container.
+- `center:` This puts it in the middle of the flex container.
+- `baseline:` This sets all the flex items in the container so that their baselines align.
+- `stretch:` This makes the items stretch to the size of their flex container (in the cross axis).
+- `flex-grow` (the first value you can pass to flex) is the amount, in relation to the other flex items, the flex item can grow when free space is available.
+- `flex-shrink `is the amount the flex item can shrink, in relation to the other flex items, when there is not enough space available.
+- `flex-basis` (the final value you can pass to flex) is the basis size the flex item is sized to.
+- The `order`property lets us revise the order of items within a Flexbox simply and sanely. In this example, a value of `-1` means that we want it to be before all the others.
