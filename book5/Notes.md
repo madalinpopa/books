@@ -56,4 +56,29 @@
 ## Chapter 6
 - The key thing to remember with pseudo-elements is that if you don't provide a value for content, nothing will show on the page
 - CSS3 added the ability to select elements based upon the substring of their attribute selector.
+- Likewise, if we wanted to select every third element, rather than write :nth-child(3n+3), we could just write :nth-child(3n) as every third item would begin at the third item anyway, without needing to state it explicitly.
+- :nth-of-type and :nth-last-of-type let you be specific about the type of item you want to select.
+- The ~ symbol, called "tilde," says "every subsequent sibling."
+- The native solution to forking code in CSS is to use "feature queries," part of the CSS Conditional Rules Module Level 3 (http://www.w3.org/TR/css3-conditional/). Support was introduced in iOS and Safari 9, Firefox 22, Edge 12, and Chrome 28.
+```css
+@supports (flashing-sausages: lincolnshire) {
+  body {
+    sausage-sound: sizzling;
+    sausage-color: slighty-burnt;
+    background-color: brown;
+  }
+}
+```
+- If your main font is a web font, it's a good idea to request the file up front by loading it with a link in the head section of your HTML with the rel attribute value as preload. For example:
+```html
+
+<link
+  rel="preload"
+  href="fonts/inter.var.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+```
 - 
