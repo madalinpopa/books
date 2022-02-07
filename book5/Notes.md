@@ -47,3 +47,13 @@
 - `flex-shrink `is the amount the flex item can shrink, in relation to the other flex items, when there is not enough space available.
 - `flex-basis` (the final value you can pass to flex) is the basis size the flex item is sized to.
 - The `order`property lets us revise the order of items within a Flexbox simply and sanely. In this example, a value of `-1` means that we want it to be before all the others.
+
+## Chapter 5
+- You need to use display grid to define a grid block
+- If you don't want the grid block take all the space you need to use inline grid
+- grid row auto flow and grid column auto flow is to add implicit rows and columns when there is free space
+
+## Chapter 6
+- The key thing to remember with pseudo-elements is that if you don't provide a value for content, nothing will show on the page
+- CSS3 added the ability to select elements based upon the substring of their attribute selector.
+- 
