@@ -82,3 +82,8 @@
 
 ```
 ## Chapter 7
+- It's possible to add multiple text shadows by comma separating two or more shadows.
+- Box shadows allow you to create a box-shaped shadow around the outside or inside of an element
+- The spread value lets you extend or contract the shadow in all directions by the amount specified.
+- Perhaps the handiest thing about background gradients is color stops. They provide the means to set which color is used at which point in a gradient.
+- Useful tool to create gradients https://www.colorzilla.com/gradient-editor/
