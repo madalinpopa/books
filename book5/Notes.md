@@ -119,4 +119,5 @@
   - https://icomoon.io/#premium
   - https://fontastic.me/
 - The object tag is the container recommended by the W3C for holding non-HTML content in a web page
-
+- http://snapsvg.io/
+- http://velocityjs.org/
