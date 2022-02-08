@@ -108,5 +108,15 @@
 - when you apply effects like filters, do so judiciously and, if possible, test whether the page speed suffers on the lowest powered devices you are hoping to support. At the least, switch on development tool features such as continuous page repainting in Chrome and toggle any effects you think may cause problems. This will provide you with data (in the form of a millisecond reading of how long the current viewport is taking to paint) to make a more educated decision on which effects to apply.
 - a website with resources and shapes for clip-path https://bennettfeely.com/clippy/
 
-
+## Chapter 8
+- The width and height attributes of the SVG effectively create a viewport.
+- The viewBox, on the other hand, defines the coordinate system in which all the shapes of the SVG are governed. You can think of the viewBox values 0 0 198 188 as describing the top left and bottom right area of a rectangle. The first two values, known technically as min-x and min-y, describe the top left corner,
+- Resources for working with SVG:
+  - http://www.drawsvg.org/
+  - https://editor.method.ac/
+  - https://inkscape.org/gallery/
+- Icons
+  - https://icomoon.io/#premium
+  - https://fontastic.me/
+- The object tag is the container recommended by the W3C for holding non-HTML content in a web page
 
