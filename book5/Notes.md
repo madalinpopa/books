@@ -87,3 +87,26 @@
 - The spread value lets you extend or contract the shadow in all directions by the amount specified.
 - Perhaps the handiest thing about background gradients is color stops. They provide the means to set which color is used at which point in a gradient.
 - Useful tool to create gradients https://www.colorzilla.com/gradient-editor/
+- Css3 patterns https://projects.verou.me/css3patterns/
+- With CSS, you can stack as many background images as you need on an element.
+```css
+.bg {
+  background: url('../img/1.png'), url('../img/2.png'), url('../img/3.png');
+}
+```
+- add background image with different resolution
+```css
+.bg {
+  background-image: url('bg.jpg');
+}
+@media (min-resolution: 1.5dppx) {
+  .bg {
+    background-image: url('bg@1_5x.jpg');
+  }
+}
+```
+- when you apply effects like filters, do so judiciously and, if possible, test whether the page speed suffers on the lowest powered devices you are hoping to support. At the least, switch on development tool features such as continuous page repainting in Chrome and toggle any effects you think may cause problems. This will provide you with data (in the form of a millisecond reading of how long the current viewport is taking to paint) to make a more educated decision on which effects to apply.
+- a website with resources and shapes for clip-path https://bennettfeely.com/clippy/
+
+
+
