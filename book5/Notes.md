@@ -121,3 +121,10 @@
 - The object tag is the container recommended by the W3C for holding non-HTML content in a web page
 - http://snapsvg.io/
 - http://velocityjs.org/
+
+# Chapter 9
+-A CSS transition is used to define how one visual state should move (transition) to another, differing visual state.
+- A CSS transform is used to take an existing element and transform it into something or someplace else without affecting any other elements on the page. For example, "make this twice as big" and "move this 100px to the right" are plain text descriptions of tasks we can achieve with CSS transforms. 
+- A CSS animation is typically used to make a series of changes to an element at various key points over time.
+- https://cubic-bezier.com/#.17,.67,.73,.43
+- https://easings.net/#easeOutSine
