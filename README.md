@@ -10,6 +10,7 @@ track my notes and exercises.
 3. Book3: Effective Python: 90 Specific Ways to Write Better Python, 2nd Edition
 4. Book4: The Programmer's Brain by Felienne Hermans
 5. Book5: Responsive Web Design with HTML5 and CSS - Third Edition by Ben Frain
+6. Book6: Using Asyncio in Python by Caleb Hattingh
 
 ## Courses completed so far
 
