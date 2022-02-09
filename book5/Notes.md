@@ -128,3 +128,5 @@
 - A CSS animation is typically used to make a series of changes to an element at various key points over time.
 - https://cubic-bezier.com/#.17,.67,.73,.43
 - https://easings.net/#easeOutSine
+- An essential concept to understand is that transforms occur outside of the document flow. More simply, any element that is transformed will not affect the position of any other element that is not a child of it.
+- http://www.useragentman.com/matrix/
