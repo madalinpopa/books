@@ -122,7 +122,7 @@
 - http://snapsvg.io/
 - http://velocityjs.org/
 
-# Chapter 9
+## Chapter 9
 -A CSS transition is used to define how one visual state should move (transition) to another, differing visual state.
 - A CSS transform is used to take an existing element and transform it into something or someplace else without affecting any other elements on the page. For example, "make this twice as big" and "move this 100px to the right" are plain text descriptions of tasks we can achieve with CSS transforms. 
 - A CSS animation is typically used to make a series of changes to an element at various key points over time.
@@ -130,3 +130,10 @@
 - https://easings.net/#easeOutSine
 - An essential concept to understand is that transforms occur outside of the document flow. More simply, any element that is transformed will not affect the position of any other element that is not a child of it.
 - http://www.useragentman.com/matrix/
+
+## Chapter 10
+- site to check contrast https://webaim.org/resources/contrastchecker/
+- By default, most browsers aid user input by autocompleting the value of form fields where possible.
+- The scroll-snap-align property controls where an item inside a scroll-snap container will snap to. The options are:
+- https://browsersync.io/
+
