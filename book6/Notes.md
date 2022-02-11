@@ -14,3 +14,6 @@
 - If you’re inside an async def function, you should call asyncio.get_running_loop() instead, which always gives you what you expect.
 - A Future instance represents some sort of ongoing action that will return a result via notification on the event loop, while a Task represents a coroutine running on the event loop
 - https://www.pythonsheets.com/
+- A coroutine is an object that encapsulates the ability to resume an underlying function that has been suspended before completion.
+- The Future class is actually a superclass of Task, and it provides all of the functionality for interaction with the loop.
+- A simple way to think of it is like this: a Future represents a future completion state of some activity and is managed by the loop. A Task is exactly the same, but the specific “activity” is a coroutine— probably one of yours that you created with an async def function plus create_task()
