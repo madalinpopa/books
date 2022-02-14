@@ -17,3 +17,4 @@
 - A coroutine is an object that encapsulates the ability to resume an underlying function that has been suspended before completion.
 - The Future class is actually a superclass of Task, and it provides all of the functionality for interaction with the loop.
 - A simple way to think of it is like this: a Future represents a future completion state of some activity and is managed by the loop. A Task is exactly the same, but the specific “activity” is a coroutine— probably one of yours that you created with an async def function plus create_task()
+- KeyboardInterrupt corresponds to the SIGINT signal. In network services, the more common signal for process termination is actually SIGTERM, and this is also the default signal when you use the kill command in a Unix shell.
