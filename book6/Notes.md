@@ -18,3 +18,10 @@
 - The Future class is actually a superclass of Task, and it provides all of the functionality for interaction with the loop.
 - A simple way to think of it is like this: a Future represents a future completion state of some activity and is managed by the loop. A Task is exactly the same, but the specific “activity” is a coroutine— probably one of yours that you created with an async def function plus create_task()
 - KeyboardInterrupt corresponds to the SIGINT signal. In network services, the more common signal for process termination is actually SIGTERM, and this is also the default signal when you use the kill command in a Unix shell.
+
+## Chapter 4
+- The Janus queue (installed with pip install janus) provides a solution for communication between threads and coroutines.
+- aiohttp brings all things HTTP to asyncio, including support for HTTP clients and servers, as well as WebSocket support.
+- ØMQ (or ZeroMQ) is a popular language-agnostic library for networking applications: it provides “smart” sockets.
+- The asyncpg library provides client access to the PostgreSQL database, but differentiates itself from other asyncio-compatible Postgres client libraries with its emphasis on speed
+- https://github.com/aio-libs
