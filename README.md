@@ -13,5 +13,5 @@ track my notes and exercises.
 6. Book6: Using Asyncio in Python by Caleb Hattingh
 
 ## Courses completed so far
-
+1. Course1: Browser Automation with Python and Selenium By Brandon Blair
 
