@@ -11,6 +11,7 @@ track my notes and exercises.
 4. Book4: The Programmer's Brain by Felienne Hermans
 5. Book5: Responsive Web Design with HTML5 and CSS - Third Edition by Ben Frain
 6. Book6: Using Asyncio in Python by Caleb Hattingh
+7. Book7: Command-Line Rust by Ken Youens-Clark
 
 ## Courses completed so far
 

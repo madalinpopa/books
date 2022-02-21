@@ -6,9 +6,6 @@ class TrainingGroundPage(BasePage):
     
     url = "https://techstepacademy.com/training-ground"
     
-    def __init__(self, driver):
-        super(driver=driver)
-
     @property
     def button1(self):
         locator = (By.ID, "b1")
