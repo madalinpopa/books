@@ -19,3 +19,4 @@ track my notes and exercises.
 1. Course1: Browser Automation with Python and Selenium By Brandon Blair
 2. Course2: Introduction to Rust Programming (in progress)
 3. Course3: Rust in Motion (in progress)
+4. Course4: Rust Esential Training by Barron Stone
