@@ -23,4 +23,9 @@ urlpatterns = [
         views.image_list,
         name="list",
     ),
+    path(
+        "ranking/",
+        views.image_ranking,
+        name="ranking",
+    ),
 ]
