@@ -13,7 +13,7 @@ track my notes and exercises.
 6. Book6: Using Asyncio in Python by Caleb Hattingh
 7. Book7: Command-Line Rust by Ken Youens-Clark (in progress)
 8. Book8: Django 3 By Example - Third Edition By Antonio Melé (in progress)
-9. Book8: High Performance Python - Second Edition by Micha Gorelick and Ian Ozsvald
+9. Book9: High Performance Python - Second Edition by Micha Gorelick and Ian Ozsvald
 
 ## Courses completed so far
 
