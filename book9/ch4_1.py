@@ -1,4 +1,5 @@
 
+# save
 # example of binary search
 def binary_search(needle, haystack):
     imin, imax = 0, len(haystack)
