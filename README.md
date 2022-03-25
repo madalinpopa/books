@@ -20,3 +20,4 @@ For each book and course I will open an issue with the book or course title to t
 2. Course2: Introduction to Rust Programming
 3. Course3: Rust in Motion
 4. Course4: Rust Esential Training by Barron Stone
+5. Course5: Essentials of Linux System Administration (LFS201)
