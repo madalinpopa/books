@@ -7,4 +7,24 @@
 - Since a process cannot send a signal directly to another process, it must ask the kernel to send the signal
 - Users (including the superuser) can send signals to other processes (programs) by using kill.
 
-## Package Management Systems
+# RPM
+
+- All rpm inquiries include the -q option, which can be combined with numerous other query options:
+- -f: allows you to determine which package a file came from
+- -l: lists the contents of a specific package
+- -a: all the packages installed on the system
+- -i: information about the package
+- -p: run the query against a package file instead of the package database
+- The -V option to rpm allows you to verify whether the files from a particular package are consistent with the system’s RPM database
+- RPM performs dependency checks. This is necessary because some packages will not operate properly unless some other package is also installed.
+- RPM performs conflict checks, including attempts to install an already-installed package or to install an older version over a newer version.
+- The developer building a package can specify that certain tasks be performed before or after the install.
+- RPM performs any post-install tasks required for setup or initialization.
+- Every time RPM installs a package, it updates information in the system database. It uses this information when checking for conflicts.
+- The -i option is not designed for upgrades; attempting to install a new RPM package over an older one fails with error messages, because it tries to overwrite existing system files.
+- If you want to downgrade with rpm -U (that is, to replace the current version with an earlier version), you must add the --oldpackage option to the command line.
+- rpm2archive is used to convert RPM package files to tar archives. If - is given as an argument, input and output will be on stdin and stdout.
+
+## DPKG
+
+
