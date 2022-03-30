@@ -25,6 +25,31 @@
 - If you want to downgrade with rpm -U (that is, to replace the current version with an earlier version), you must add the --oldpackage option to the command line.
 - rpm2archive is used to convert RPM package files to tar archives. If - is given as an argument, input and output will be on stdin and stdout.
 
-## DPKG
+## Process and Load Monitoring Utilities
 
+top - Process activity, dynamically updated
+uptime - How long the system is running and the average Load
+ps - Detailed information about processes
+pstree - A tree of processes and their connections
+mpstat - Multiple procesor usage
+iostat - CPU utilization and I/O statistics
+sar - Display and collect information about system activity
+numastat - information about NUMA (Non-Uniform Memory Architecture)
+strace - Information about all system calls and a process makes
+
+## Memory monitoring utilitites
+free - Brief summary of memory usage
+vmstat - Detailed virtual memory statistics and block I/O dynamically updated
+pmap - Process memory map
+
+## I/O Monitoring utilitites
+iostat - CPU utilization and I/O statistics
+sar - Display and collect information about system activity
+vmstat - Detailed virtual memory statistics and block I/O, dynamically updated
+
+## Network Monitoring utilitites
+netstat - Detailed networking statistics
+iptraf - Ghather information on network interfaces
+tcpdump - Detailed analusis of network packets and traffic
+wireshark - Detailed network traffic analysis
 
