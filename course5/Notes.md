@@ -53,3 +53,14 @@ iptraf - Ghather information on network interfaces
 tcpdump - Detailed analusis of network packets and traffic
 wireshark - Detailed network traffic analysis
 
+## Process Monitoring Tools
+top - Process activity, dynamically updated
+uptime - How long the system is running and the average Load
+ps - Detailed information about processes
+pstree - A tree of processes and their connections
+mpstat - Multiple processor usage
+iostat - CPU utilization and I/O statistics
+sar - Display and collect information about system activity
+numstat - Information about NUMA
+strace - Information about all system calls a process makes
+
