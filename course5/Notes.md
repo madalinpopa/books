@@ -38,22 +38,26 @@ numastat - information about NUMA (Non-Uniform Memory Architecture)
 strace - Information about all system calls and a process makes
 
 ## Memory monitoring utilitites
+
 free - Brief summary of memory usage
 vmstat - Detailed virtual memory statistics and block I/O dynamically updated
 pmap - Process memory map
 
 ## I/O Monitoring utilitites
+
 iostat - CPU utilization and I/O statistics
 sar - Display and collect information about system activity
 vmstat - Detailed virtual memory statistics and block I/O, dynamically updated
 
 ## Network Monitoring utilitites
+
 netstat - Detailed networking statistics
 iptraf - Ghather information on network interfaces
 tcpdump - Detailed analusis of network packets and traffic
 wireshark - Detailed network traffic analysis
 
 ## Process Monitoring Tools
+
 top - Process activity, dynamically updated
 uptime - How long the system is running and the average Load
 ps - Detailed information about processes
