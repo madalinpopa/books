@@ -13,6 +13,7 @@ For each book and course I will open an issue with the book or course title to t
 7. Book7: Command-Line Rust by Ken Youens-Clark
 8. Book8: Django 3 By Example - Third Edition By Antonio Melé
 9. Book9: High Performance Python - Second Edition by Micha Gorelick and Ian Ozsvald
+10. Book10: Fluent Python, 2nd Edition
 
 ## Courses completed so far
 
